@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PranaPath — Your Spiritual Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --sf:#E8751A; --sf2:#FF9A45; --sfp:#2D1A08;
+  --gold:#C9872A; --goldl:#F2C06E;
+  --bg:#0F0A05; --bg2:#1A1008; --bg3:#241608;
+  --sur:#1E1208; --sur2:#2A1A0A;
+  --tx:#F5EDD8; --tx2:#D4A870; --tx3:#8B6545;
+  --bd:rgba(200,140,70,0.15); --bd2:rgba(200,140,70,0.28);
+  --sh:0 4px 24px rgba(0,0,0,0.4); --sh2:0 8px 40px rgba(0,0,0,0.55);
+  --r:16px; --rsm:10px;
+  --df:'Cormorant Garamond',Georgia,serif;
+  --db:'Outfit',sans-serif;
+}
+[data-theme="light"] {
+  --sf:#E8751A; --sf2:#FF9A45; --sfp:#FFF3E8;
+  --gold:#C9872A; --goldl:#F2C06E;
+  --bg:#FDFAF6; --bg2:#F7F0E8; --bg3:#EFE4D4;
+  --sur:#FFFFFF; --sur2:#FFF8F2;
+  --tx:#1A120B; --tx2:#5C3D2E; --tx3:#9B7355;
+  --bd:rgba(200,140,70,0.2); --bd2:rgba(200,140,70,0.38);
+  --sh:0 4px 24px rgba(140,80,20,0.1); --sh2:0 8px 40px rgba(140,80,20,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--db);background:var(--bg);color:var(--tx);transition:background .3s,color .3s;overflow-x:hidden;min-height:100vh}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(15,10,5,.88);border-bottom:1px solid var(--bd);padding:0 1.5rem;display:flex;align-items:center;height:60px;gap:8px}
+[data-theme="light"] .nav{background:rgba(253,250,246,.88)}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;margin-right:auto;text-decoration:none}
+.logo-icon{width:32px;height:32px}
+.logo-name{font-family:var(--df);font-size:1.4rem;font-weight:600;color:var(--sf)}
+.nav-links{display:flex;gap:2px}
+.nl{padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;color:var(--tx2);border:none;background:none;transition:all .2s;font-family:var(--db)}
+.nl:hover,.nl.act{background:var(--sfp);color:var(--sf)}
+.nav-r{display:flex;align-items:center;gap:8px;margin-left:.75rem}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--bd2);background:var(--sur);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--tx2);font-size:.9rem}
+.icon-btn:hover{background:var(--sfp);color:var(--sf);border-color:var(--sf)}
+.btn{padding:7px 18px;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;border:none;font-family:var(--db);white-space:nowrap}
+.btn-p{background:var(--sf);color:#fff}
+.btn-p:hover{background:var(--sf2);transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--tx2);border:1px solid var(--bd2)}
+.btn-g:hover{background:var(--sfp);color:var(--sf)}
+.btn-sm{padding:5px 12px;font-size:.78rem}
+
+/* PAGES */
+.page{display:none;padding-top:60px;min-height:100vh}
+.page.on{display:block}
+
+/* LANDING */
+.hero{min-height:calc(100vh - 60px);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:3rem 5rem;gap:3rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-mandala{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:600px;height:600px;opacity:.05;animation:spin 90s linear infinite}
+.hero-glow{position:absolute;top:15%;right:15%;width:350px;height:350px;background:radial-gradient(circle,var(--sf) 0%,transparent 70%);opacity:.07;border-radius:50%;filter:blur(35px)}
+.htag{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;background:var(--sfp);border:1px solid var(--bd2);border-radius:100px;font-size:.78rem;font-weight:500;color:var(--sf);margin-bottom:1.25rem}
+.hero h1{font-family:var(--df);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:500;line-height:1.18;margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--sf)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--tx2);line-height:1.7;margin-bottom:1.75rem;max-width:460px}
+.hero-acts{display:flex;gap:10px;flex-wrap:wrap}
+.hero-vis{display:flex;justify-content:center;align-items:center}
+.hcard{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh2);width:300px;animation:float 4s ease-in-out infinite}
+
+/* FEATURES */
+.feats{padding:4rem 5rem;background:var(--bg2)}
+.sec-head{text-align:center;margin-bottom:2.5rem}
+.sec-head h2{font-family:var(--df);font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:500;margin-bottom:.6rem}
+.sec-head p{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--tx2);font-size:1.05rem;max-width:560px;margin:0 auto}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.fc{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+.fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sf),var(--gold));opacity:0;transition:opacity .3s}
+.fc:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
+.fc:hover::before{opacity:1}
+.ficon{width:44px;height:44px;background:var(--sfp);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;font-size:1.3rem}
+.fc h3{font-family:var(--df);font-size:1.15rem;font-weight:600;margin-bottom:.4rem}
+.fc p{font-size:.83rem;color:var(--tx2);line-height:1.65}
+
+/* QUOTE */
+.quote-sec{padding:4rem 5rem;text-align:center;position:relative;overflow:hidden}
+.quote-sec::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--sfp),transparent);pointer-events:none}
+
+/* DASHBOARD */
+.dash{display:grid;grid-template-columns:250px 1fr;min-height:calc(100vh - 60px)}
+.sidebar{background:var(--sur);border-right:1px solid var(--bd);padding:1.25rem .875rem;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;display:flex;flex-direction:column}
+.sb-user{display:flex;align-items:center;gap:9px;padding:10px;background:var(--bg2);border-radius:var(--rsm);margin-bottom:1.25rem}
+.av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--sf),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:700;color:#fff;flex-shrink:0}
+.av-info h4{font-size:.85rem;font-weight:600}
+.av-info p{font-size:.72rem;color:var(--tx3)}
+.sb-sec{margin-bottom:1.25rem}
+.sb-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--tx3);padding:0 8px;margin-bottom:5px}
+.sbi{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.84rem;font-weight:500;color:var(--tx2);border:none;background:none;width:100%;text-align:left;font-family:var(--db)}
+.sbi svg{width:17px;height:17px;flex-shrink:0}
+.sbi:hover,.sbi.act{background:var(--sfp);color:var(--sf)}
+.main{padding:1.75rem;overflow-y:auto;background:var(--bg)}
+.pi{display:none}
+.pi.on{display:block}
+
+/* CARDS */
+.card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh)}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
+.ct{font-family:var(--df);font-size:1.2rem;font-weight:600}
+.csub{font-size:.75rem;color:var(--tx3);margin-top:2px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+
+/* STAT CARDS */
+.sc{background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:1.15rem;box-shadow:var(--sh)}
+.sc-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.7rem;font-size:1.2rem}
+.ic-o{background:rgba(232,117,26,.15);color:var(--sf)}
+.ic-g{background:rgba(201,135,42,.15);color:var(--gold)}
+.ic-gr{background:rgba(46,125,50,.15);color:#4CAF50}
+.ic-b{background:rgba(41,121,255,.15);color:#5C9EFF}
+.sc-num{font-family:var(--df);font-size:1.9rem;font-weight:600;line-height:1}
+.sc-lbl{font-size:.77rem;color:var(--tx3);margin-top:3px}
+.sc-ch{font-size:.72rem;margin-top:5px;display:flex;align-items:center;gap:3px}
+.up{color:#4CAF50} .dn{color:#ef5350}
+
+/* PRACTICE ITEMS */
+.prac-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pitem{background:var(--bg2);border:2px solid var(--bd);border-radius:var(--rsm);padding:.9rem 1rem;cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:10px}
+.pitem.done{background:var(--sfp);border-color:var(--sf)}
+.pcheck{width:22px;height:22px;border-radius:50%;border:2px solid var(--bd2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .22s;font-size:.7rem}
+.pitem.done .pcheck{background:var(--sf);border-color:var(--sf);color:#fff}
+.pitem-info h4{font-size:.87rem;font-weight:600}
+.pitem-info p{font-size:.72rem;color:var(--tx3)}
+.pemi{font-size:1.3rem;flex-shrink:0}
+
+/* CALENDAR */
+.cal-wrap{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-head{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:3px}
+.cal-head span{text-align:center;font-size:.67rem;font-weight:700;color:var(--tx3);text-transform:uppercase}
+.cday{aspect-ratio:1;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:500;cursor:default;transition:transform .15s}
+.cday.full{background:var(--sf);color:#fff}
+.cday.partial{background:var(--goldl);color:#1a0a00}
+.cday.miss{background:var(--bg3);color:var(--tx3)}
+.cday.today{outline:2px solid var(--sf);outline-offset:2px}
+.cday.empty{background:transparent}
+.cday:hover:not(.empty){transform:scale(1.15)}
+
+/* STREAK */
+.streak-row{display:flex;gap:4px;flex-wrap:wrap;margin-top:.75rem}
+.sd{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0}
+.sd.on{background:var(--sf);color:#fff}
+.sd.off{background:var(--bg3);color:var(--tx3)}
+
+/* BADGES */
+.badge-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.badge-i{background:var(--bg2);border-radius:var(--rsm);padding:.9rem;text-align:center;border:1px solid var(--bd);transition:all .2s}
+.badge-i.earned{background:var(--sfp);border-color:var(--sf)}
+.badge-i.earned:hover{transform:scale(1.04)}
+.badge-i .bi-icon{font-size:1.8rem;margin-bottom:.4rem}
+.badge-i .bi-name{font-size:.78rem;font-weight:600;color:var(--tx2)}
+.badge-i .bi-desc{font-size:.68rem;color:var(--tx3);margin-top:2px}
+.badge-i.locked{opacity:.45}
+
+/* LEADERBOARD */
+.lbr{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rsm);transition:background .2s;margin-bottom:3px}
+.lbr:hover{background:var(--bg2)}
+.lbr.me{background:var(--sfp);border:1px solid var(--bd2)}
+.lbrank{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.77rem;font-weight:700;flex-shrink:0}
+.r1{background:#FFD700;color:#6a4800}
+.r2{background:#C0C0C0;color:#3a3a3a}
+.r3{background:#CD7F32;color:#3a1500}
+.rn{background:var(--bg3);color:var(--tx3)}
+.lb-pts{font-family:var(--df);font-size:1.05rem;font-weight:600;color:var(--sf);margin-left:auto}
+
+/* AI CHAT */
+.chat-shell{display:flex;flex-direction:column;height:calc(100vh - 60px - 3.5rem);max-height:680px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh2)}
+.chat-hdr{background:linear-gradient(135deg,var(--sf),var(--gold));padding:1.1rem 1.4rem;color:#fff;flex-shrink:0}
+.chat-hdr h3{font-family:var(--df);font-size:1.35rem;font-weight:500}
+.chat-hdr p{font-size:.78rem;opacity:.85;margin-top:1px}
+.chat-msgs{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:10px;background:var(--sur);border:1px solid var(--bd);border-top:none}
+.cmsg{max-width:82%;padding:9px 13px;border-radius:11px;font-size:.855rem;line-height:1.65;animation:msgin .2s ease}
+.cmsg.usr{align-self:flex-end;background:var(--sf);color:#fff;border-radius:11px 11px 2px 11px}
+.cmsg.ai{align-self:flex-start;background:var(--bg2);color:var(--tx);border-radius:11px 11px 11px 2px;border:1px solid var(--bd)}
+.ai-nm{font-size:.68rem;font-weight:700;color:var(--sf);margin-bottom:3px;font-family:var(--df);letter-spacing:.04em}
+.chat-sugs{display:flex;gap:6px;padding:.6rem 1rem .5rem;background:var(--sur2);border:1px solid var(--bd);border-top:none;flex-wrap:wrap}
+.sug{padding:4px 11px;border-radius:100px;border:1px solid var(--bd2);background:var(--sur);color:var(--tx2);font-size:.73rem;cursor:pointer;transition:all .2s;font-family:var(--db)}
+.sug:hover{background:var(--sfp);color:var(--sf);border-color:var(--sf)}
+.chat-inp-row{display:flex;gap:7px;padding:.9rem 1rem;background:var(--sur2);border:1px solid var(--bd);border-top:none}
+.cinp{flex:1;padding:9px 13px;border-radius:9px;border:1px solid var(--bd2);background:var(--bg2);color:var(--tx);font-family:var(--db);font-size:.855rem;outline:none;transition:border-color .2s}
+.cinp:focus{border-color:var(--sf)}
+.csend{padding:9px 16px;border-radius:9px;background:var(--sf);color:#fff;border:none;cursor:pointer;font-family:var(--db);font-weight:500;font-size:.855rem;transition:all .2s;display:flex;align-items:center;gap:5px}
+.csend:hover{background:var(--sf2)}
+.csend:disabled{opacity:.55;cursor:not-allowed}
+.tdot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--tx3);animation:tdots 1.2s infinite;margin:0 2px}
+.tdot:nth-child(2){animation-delay:.2s}
+.tdot:nth-child(3){animation-delay:.4s}
+
+/* TEACHER */
+.t-hdr{background:linear-gradient(135deg,var(--sf),var(--gold));border-radius:var(--r);padding:1.75rem;color:#fff;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.t-hdr::after{content:'🕉';position:absolute;right:1.75rem;top:50%;transform:translateY(-50%);font-size:4.5rem;opacity:.13}
+.t-hdr h2{font-family:var(--df);font-size:1.65rem;font-weight:500}
+.t-hdr p{opacity:.85;font-size:.87rem;margin-top:3px}
+.stu-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rsm);border:1px solid var(--bd);background:var(--sur);margin-bottom:7px;transition:all .2s}
+.stu-row:hover{border-color:var(--bd2);box-shadow:var(--sh)}
+.mini-bar{flex:1;max-width:90px}
+.mbt{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.mbf{height:100%;background:linear-gradient(90deg,var(--sf),var(--gold));border-radius:3px}
+.sbadge{padding:3px 9px;border-radius:100px;font-size:.68rem;font-weight:700}
+.s-act{background:rgba(76,175,80,.13);color:#4CAF50}
+.s-new{background:rgba(41,121,255,.13);color:#5C9EFF}
+.s-inact{background:rgba(239,83,80,.12);color:#ef5350}
+
+/* MODAL */
+.moverlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+.moverlay.on{display:flex}
+.modal{background:var(--sur);border-radius:var(--r);padding:1.85rem;max-width:420px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:min .28s ease;border:1px solid var(--bd)}
+.modal h3{font-family:var(--df);font-size:1.35rem;font-weight:600;margin-bottom:1rem}
+.rtabs{display:flex;gap:7px;margin-bottom:1.25rem}
+.rtab{flex:1;padding:9px;text-align:center;border-radius:var(--rsm);border:1px solid var(--bd2);cursor:pointer;font-size:.84rem;font-weight:500;color:var(--tx2);transition:all .2s;background:transparent;font-family:var(--db)}
+.rtab.act{background:var(--sf);color:#fff;border-color:var(--sf)}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-size:.75rem;font-weight:700;color:var(--tx2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.fi{width:100%;padding:9px 13px;border-radius:var(--rsm);border:1px solid var(--bd2);background:var(--bg2);color:var(--tx);font-family:var(--db);font-size:.87rem;outline:none;transition:border-color .2s}
+.fi:focus{border-color:var(--sf)}
+.merr{background:rgba(239,83,80,.12);color:#ef5350;padding:8px 12px;border-radius:8px;font-size:.82rem;margin-bottom:.75rem;display:none}
+.merr.on{display:block}
+
+/* MANTRA */
+.mantra-c{background:linear-gradient(135deg,var(--sur2),var(--sur));border:1px solid var(--bd2);border-radius:var(--r);padding:1.75rem;text-align:center;position:relative;overflow:hidden;margin-bottom:1.1rem}
+.mantra-c::before{content:'';position:absolute;top:-25px;left:-25px;width:100px;height:100px;background:var(--sf);opacity:.06;border-radius:50%;filter:blur(18px)}
+.msan{font-family:var(--df);font-size:1.6rem;font-style:italic;color:var(--sf);margin-bottom:.6rem;letter-spacing:.05em}
+.mtrans{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--tx2);font-size:.97rem;line-height:1.7;margin-bottom:.4rem}
+.msrc{font-size:.72rem;color:var(--tx3);font-weight:500}
+
+/* PROGRESS BAR */
+.pb-wrap{margin-bottom:.75rem}
+.pb-lbl{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:4px}
+.pb-lbl span:last-child{color:var(--sf);font-weight:600}
+.pb-track{height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.pb-fill{height:100%;background:linear-gradient(90deg,var(--sf),var(--gold));border-radius:4px;transition:width .6s ease}
+
+/* TAG */
+.tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:.7rem;font-weight:600;background:var(--sfp);color:var(--sf);border:1px solid var(--bd2)}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.75rem;right:1.75rem;background:var(--tx);color:var(--bg);padding:11px 18px;border-radius:var(--rsm);font-size:.85rem;font-weight:500;z-index:300;animation:fadein .25s ease;display:none;max-width:280px;box-shadow:var(--sh2)}
+.toast.on{display:block}
+
+/* POINTS HISTORY */
+.pth{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd)}
+.pth:last-child{border:none}
+.pth-val{font-family:var(--df);font-size:1.05rem;font-weight:600;color:var(--sf)}
+
+/* EMPTY STATE */
+.empty-st{text-align:center;padding:2.5rem 1rem;color:var(--tx3)}
+.empty-st .ei{font-size:2.5rem;margin-bottom:.75rem}
+.empty-st h4{font-family:var(--df);font-size:1.1rem;color:var(--tx2);margin-bottom:.4rem}
+.empty-st p{font-size:.83rem;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bd);padding:1.5rem 5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+
+/* ANIMATIONS */
+@keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes msgin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes min{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tdots{0%,80%,100%{transform:scale(.8);opacity:.5}40%{transform:scale(1.1);opacity:1}}
+@keyframes fi-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fi-anim{animation:fi-in .35s ease both}
+
+/* BAR CHART */
+.bar-chart{display:flex;align-items:flex-end;gap:5px;height:90px;padding:0 2px}
+.bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--sf),var(--gold));opacity:.8;position:relative;transition:height .6s ease,opacity .2s}
+.bar:hover{opacity:1}
+.blbl{position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);font-size:.63rem;color:var(--tx3);white-space:nowrap}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:2rem;text-align:center}
+  .hero-vis{display:none}
+  .feats{padding:3rem 1.25rem}
+  .quote-sec{padding:3rem 1.25rem}
+  footer{padding:1.25rem}
+  .dash{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .main{padding:1rem}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .prac-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo" onclick="showPage('land')">
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="15" stroke="var(--sf)" stroke-width="1.4"/>
+      <path d="M16 5 C16 5 22 11 22 17 C22 20.3 19.3 23 16 23 C12.7 23 10 20.3 10 17 C10 11 16 5 16 5Z" fill="var(--sf)" opacity=".28"/>
+      <path d="M16 7 C16 7 21 13 21 17 C21 19.8 18.8 22 16 22 C13.2 22 11 19.8 11 17 C11 13 16 7 16 7Z" fill="var(--sf)"/>
+      <line x1="16" y1="16" x2="16" y2="23" stroke="var(--sf)" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M12 14 C12 14 8.5 16 8 19" stroke="var(--sf)" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+      <path d="M20 14 C20 14 23.5 16 24 19" stroke="var(--sf)" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+    </svg>
+    <span class="logo-name">PranaPath</span>
+  </div>
+  <div class="nav-links">
+    <button class="nl" onclick="showPage('land')">Home</button>
+    <button class="nl" id="navStudent" onclick="requireAuth('student')" style="display:none">My Practice</button>
+    <button class="nl" id="navTeacher" onclick="requireAuth('teacher')" style="display:none">Teacher Portal</button>
+    <button class="nl" onclick="requireAuth('chat')">Guruji AI</button>
+  </div>
+  <div class="nav-r">
+    <button class="icon-btn" onclick="toggleTheme()" title="Toggle theme" id="thBtn">🌙</button>
+    <div id="navSignedOut" style="display:flex;gap:7px">
+      <button class="btn btn-g" onclick="openModal('authModal','login')">Sign In</button>
+      <button class="btn btn-p" onclick="openModal('authModal','signup')">Create Account</button>
+    </div>
+    <div id="navSignedIn" style="display:flex;align-items:center;gap:8px;display:none">
+      <div id="navAvatar" class="av" style="cursor:pointer" onclick="requireAuth('home')">?</div>
+      <button class="btn btn-g btn-sm" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<!-- ========== LANDING ========== -->
+<div class="page on" id="page-land">
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-glow"></div>
+      <svg class="hero-mandala" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="195" stroke="var(--sf)" stroke-width=".8"/>
+        <circle cx="200" cy="200" r="155" stroke="var(--sf)" stroke-width=".5"/>
+        <circle cx="200" cy="200" r="115" stroke="var(--sf)" stroke-width=".5"/>
+        <circle cx="200" cy="200" r="75" stroke="var(--sf)" stroke-width=".5"/>
+        <circle cx="200" cy="200" r="38" stroke="var(--sf)" stroke-width=".5"/>
+        <line x1="200" y1="5" x2="200" y2="395" stroke="var(--sf)" stroke-width=".5"/>
+        <line x1="5" y1="200" x2="395" y2="200" stroke="var(--sf)" stroke-width=".5"/>
+        <line x1="34" y1="34" x2="366" y2="366" stroke="var(--sf)" stroke-width=".4"/>
+        <line x1="366" y1="34" x2="34" y2="366" stroke="var(--sf)" stroke-width=".4"/>
+        <path d="M200 42C220 80 220 120 200 158C180 120 180 80 200 42Z" stroke="var(--sf)" stroke-width=".8" fill="none"/>
+        <path d="M200 242C220 280 220 320 200 358C180 320 180 280 200 242Z" stroke="var(--sf)" stroke-width=".8" fill="none"/>
+        <path d="M42 200C80 220 120 220 158 200C120 180 80 180 42 200Z" stroke="var(--sf)" stroke-width=".8" fill="none"/>
+        <path d="M242 200C280 220 320 220 358 200C320 180 280 180 242 200Z" stroke="var(--sf)" stroke-width=".8" fill="none"/>
+        <g transform="rotate(45,200,200)">
+          <path d="M200 42C220 80 220 120 200 158C180 120 180 80 200 42Z" stroke="var(--sf)" stroke-width=".7" fill="none"/>
+          <path d="M200 242C220 280 220 320 200 358C180 320 180 280 200 242Z" stroke="var(--sf)" stroke-width=".7" fill="none"/>
+          <path d="M42 200C80 220 120 220 158 200C120 180 80 180 42 200Z" stroke="var(--sf)" stroke-width=".7" fill="none"/>
+          <path d="M242 200C280 220 320 220 358 200C320 180 280 180 242 200Z" stroke="var(--sf)" stroke-width=".7" fill="none"/>
+        </g>
+      </svg>
+    </div>
+    <div class="fi-anim">
+      <div class="htag">🕉️ Art of Living · Spiritual Platform</div>
+      <h1>Transform Your<br/><em>Spiritual Practice</em><br/>Into a Daily Habit</h1>
+      <p class="hero-sub">Track your Sudarshan Kriya, meditation & yoga. Get guided by ancient wisdom. Build consistency — one day at a time.</p>
+      <div class="hero-acts">
+        <button class="btn btn-p" style="padding:11px 26px;font-size:.97rem" onclick="openModal('authModal','signup')">Begin Your Journey ✨</button>
+        <button class="btn btn-g" style="padding:11px 22px;font-size:.97rem" onclick="openModal('authModal','login')">Sign In →</button>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="hcard">
+        <div style="display:flex;align-items:center;gap:9px;padding-bottom:.9rem;border-bottom:1px solid var(--bd);margin-bottom:.9rem">
+          <span style="font-size:1.6rem">🔥</span>
+          <div><div style="font-family:var(--df);font-size:1.2rem;font-weight:600">Build Your Streak</div><div style="font-size:.75rem;color:var(--tx3)">Every day counts</div></div>
+        </div>
+        <div class="prac-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="pitem done" style="padding:.7rem"><span class="pemi">🧘</span><div class="pitem-info"><h4>Kriya</h4><p>Done ✓</p></div></div>
+          <div class="pitem done" style="padding:.7rem"><span class="pemi">🌬️</span><div class="pitem-info"><h4>Pranayama</h4><p>Done ✓</p></div></div>
+          <div class="pitem" style="padding:.7rem"><span class="pemi">🪷</span><div class="pitem-info"><h4>Meditation</h4><p>Tap to mark</p></div></div>
+          <div class="pitem" style="padding:.7rem"><span class="pemi">🧎</span><div class="pitem-info"><h4>Yoga</h4><p>Tap to mark</p></div></div>
+        </div>
+        <div style="margin-top:.9rem;background:var(--sfp);border-radius:8px;padding:.7rem;text-align:center">
+          <div style="font-size:.72rem;color:var(--tx3);margin-bottom:2px">Your practice, your progress</div>
+          <div style="font-family:var(--df);font-size:1rem;color:var(--sf)">Starts at Day 1 → becomes a lifestyle</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feats">
+    <div class="sec-head">
+      <h2>Everything on Your<br/>Spiritual Path</h2>
+      <p>Designed for Art of Living students and teachers — track, learn, grow together.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fc"><div class="ficon">📅</div><h3>Daily Practice Tracker</h3><p>Log Sudarshan Kriya, pranayama, meditation and yoga. Watch your streaks grow day by day.</p></div>
+      <div class="fc"><div class="ficon">⚡</div><h3>Points & Badges</h3><p>Earn points for every practice. Unlock Bronze, Silver and Gold badges as you grow.</p></div>
+      <div class="fc"><div class="ficon">📖</div><h3>Daily Mantra</h3><p>Begin each day with a sacred mantra from the Gita — with meaning and reflection.</p></div>
+      <div class="fc"><div class="ficon">🤖</div><h3>Guruji AI</h3><p>Ask anything about life, stress or spiritual doubts. Wisdom drawn from the Gita, Ramayana & Mahabharata.</p></div>
+      <div class="fc"><div class="ficon">📊</div><h3>Teacher Analytics</h3><p>Teachers track every student's progress, streaks and completion — with AI-driven insights.</p></div>
+      <div class="fc"><div class="ficon">▶️</div><h3>Guided Sessions</h3><p>10, 20, 30-minute meditation, pranayama and yoga sessions — always accessible.</p></div>
+    </div>
+  </section>
+
+  <section class="quote-sec">
+    <div style="position:relative">
+      <div style="font-size:3.5rem;opacity:.12;margin-bottom:.3rem">❝</div>
+      <blockquote style="font-family:var(--df);font-size:clamp(1.3rem,2.8vw,2rem);font-style:italic;max-width:640px;margin:0 auto .9rem;line-height:1.5;font-weight:400">"Yoga is the journey of the self, through the self, to the self."</blockquote>
+      <cite style="font-size:.87rem;color:var(--tx3);font-style:normal;font-weight:500">— The Bhagavad Gita</cite>
+      <div style="margin-top:2rem;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:var(--df);font-size:2.2rem;font-weight:600;color:var(--sf)">Real</div><div style="font-size:.82rem;color:var(--tx3)">Practice Tracking</div></div>
+        <div style="width:1px;background:var(--bd)"></div>
+        <div style="text-align:center"><div style="font-family:var(--df);font-size:2.2rem;font-weight:600;color:var(--sf)">Live</div><div style="font-size:.82rem;color:var(--tx3)">AI Guidance</div></div>
+        <div style="width:1px;background:var(--bd)"></div>
+        <div style="text-align:center"><div style="font-family:var(--df);font-size:2.2rem;font-weight:600;color:var(--sf)">Daily</div><div style="font-size:.82rem;color:var(--tx3)">Habit System</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="display:flex;align-items:center;gap:9px"><span style="font-family:var(--df);font-size:1.2rem;font-weight:600;color:var(--sf)">PranaPath</span><span style="font-size:.78rem;color:var(--tx3)">© 2025 — Built with 🧡 for Art of Living</span></div>
+    <div style="font-size:.78rem;color:var(--tx3)">Inspired by the teachings of Sri Sri Ravi Shankar</div>
+  </footer>
+</div>
+
+<!-- ========== STUDENT DASHBOARD ========== -->
+<div class="page" id="page-dash">
+  <div class="dash">
+    <aside class="sidebar" id="sidebar">
+      <div class="sb-user" id="sbUser">
+        <div class="av" id="sbAv">?</div>
+        <div class="av-info"><h4 id="sbName">—</h4><p id="sbRole">—</p></div>
+      </div>
+      <div id="sb-student" style="flex:1;display:flex;flex-direction:column">
+        <div class="sb-sec">
+          <div class="sb-lbl">Practice</div>
+          <button class="sbi act" onclick="showInner('overview',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+            Overview
+          </button>
+          <button class="sbi" onclick="showInner('tracker',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Daily Tracker
+          </button>
+          <button class="sbi" onclick="showInner('calendar',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/></svg>
+            Progress Calendar
+          </button>
+          <button class="sbi" onclick="showInner('guided',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+            Guided Sessions
+          </button>
+        </div>
+        <div class="sb-sec">
+          <div class="sb-lbl">Community</div>
+          <button class="sbi" onclick="showInner('badges',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Badges & Points
+          </button>
+          <button class="sbi" onclick="showInner('leaderboard',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+            Leaderboard
+          </button>
+          <button class="sbi" onclick="showInner('chat',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd"/></svg>
+            Guruji AI
+          </button>
+        </div>
+        <div style="margin-top:auto;padding-top:.75rem;border-top:1px solid var(--bd)">
+          <button class="sbi" onclick="showPage('land')">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+            Back to Home
+          </button>
+        </div>
+      </div>
+
+      <div id="sb-teacher" style="flex:1;display:none;flex-direction:column">
+        <div class="sb-sec">
+          <div class="sb-lbl">Dashboard</div>
+          <button class="sbi act" onclick="showInner('teacherHome',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+            Overview
+          </button>
+          <button class="sbi" onclick="showInner('students',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1z"/></svg>
+            All Students
+          </button>
+          <button class="sbi" onclick="showInner('insights',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/></svg>
+            Insights
+          </button>
+          <button class="sbi" onclick="showInner('chat',this)">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd"/></svg>
+            Guruji AI
+          </button>
+        </div>
+        <div style="margin-top:auto;padding-top:.75rem;border-top:1px solid var(--bd)">
+          <button class="sbi" onclick="showPage('land')">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+            Back to Home
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <!-- OVERVIEW -->
+      <div class="pi on" id="pi-overview">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
+          <div><h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500" id="greetMsg">Namaste 🙏</h1><p style="font-size:.82rem;color:var(--tx3);margin-top:2px" id="todayDate">—</p></div>
+          <div id="streakTagOv" class="tag" style="font-size:.8rem">0 day streak</div>
+        </div>
+        <div class="mantra-c" id="dailyMantra"></div>
+        <div class="g4" style="margin-bottom:1.1rem" id="ovStats"></div>
+        <div class="g2">
+          <div class="card" id="ovPractice"></div>
+          <div class="card" id="ovWeek"></div>
+        </div>
+        <div class="card" style="margin-top:1.1rem" id="ovStreak"></div>
+      </div>
+
+      <!-- TRACKER -->
+      <div class="pi" id="pi-tracker">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Daily Practice Tracker</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Mark each practice as you complete it. Your consistency is your greatest sadhana.</p>
+        <div class="g2">
+          <div class="card" id="trackerToday"></div>
+          <div class="card">
+            <div class="ch"><div class="ct">Reflections</div></div>
+            <textarea class="fi" id="practiceNotes" style="resize:vertical;min-height:120px;margin-bottom:1rem" placeholder="How was your practice today? Any insights from meditation?"></textarea>
+            <div style="margin-bottom:1rem">
+              <div style="font-size:.83rem;font-weight:600;color:var(--tx2);margin-bottom:.6rem">Practice Intensity</div>
+              <div style="display:flex;flex-direction:column;gap:9px" id="intensitySliders"></div>
+            </div>
+            <button class="btn btn-p" style="width:100%;padding:11px" onclick="saveTrackerLog()">Save Today's Practice 🙏</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="pi" id="pi-calendar">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Progress Calendar</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Your practice history. Every glowing dot is a day you showed up for yourself.</p>
+        <div class="card" id="calCard"></div>
+        <div class="g3" style="margin-top:1.1rem" id="calStats"></div>
+      </div>
+
+      <!-- GUIDED -->
+      <div class="pi" id="pi-guided">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Guided Practice Sessions</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Structured sessions for every moment. Choose what resonates today.</p>
+        <div class="g3" id="guidedGrid"></div>
+      </div>
+
+      <!-- BADGES -->
+      <div class="pi" id="pi-badges">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Badges & Points</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Your spiritual milestones. Each badge marks a real achievement on your path.</p>
+        <div class="g2" id="badgesContent"></div>
+      </div>
+
+      <!-- LEADERBOARD -->
+      <div class="pi" id="pi-leaderboard">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Community Leaderboard</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Students on the same path. Inspire and be inspired.</p>
+        <div class="card" id="lbCard"></div>
+      </div>
+
+      <!-- AI CHAT -->
+      <div class="pi" id="pi-chat">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Guruji AI</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1rem">Ancient wisdom for modern questions. Always here for you.</p>
+        <div class="chat-shell">
+          <div class="chat-hdr"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:1.6rem">🕉️</span><div><h3>Guruji</h3><p>Spiritual Guide · Inspired by the Gita, Ramayana & Mahabharata</p></div></div></div>
+          <div class="chat-msgs" id="chatMsgs"></div>
+          <div class="chat-sugs">
+            <span class="sug" onclick="sendSug(this)">How to stay consistent?</span>
+            <span class="sug" onclick="sendSug(this)">What does Gita say about stress?</span>
+            <span class="sug" onclick="sendSug(this)">Why do I feel disconnected?</span>
+            <span class="sug" onclick="sendSug(this)">How to deepen meditation?</span>
+            <span class="sug" onclick="sendSug(this)">Dealing with anger</span>
+          </div>
+          <div class="chat-inp-row">
+            <input class="cinp" id="chatInp" placeholder="Ask Guruji anything..." onkeydown="if(event.key==='Enter')sendChat()"/>
+            <button class="csend" id="chatSendBtn" onclick="sendChat()">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHER HOME -->
+      <div class="pi" id="pi-teacherHome">
+        <div class="t-hdr"><h2 id="tHdrName">Welcome 🙏</h2><p id="tHdrSub">Your dashboard</p></div>
+        <div class="g4" style="margin-bottom:1.1rem" id="teacherStats"></div>
+        <div class="g2" id="teacherCharts"></div>
+      </div>
+
+      <!-- STUDENTS LIST -->
+      <div class="pi" id="pi-students">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">All Students</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Monitor progress and support your students on their journey.</p>
+        <div class="card">
+          <div class="ch" style="flex-wrap:wrap;gap:.75rem">
+            <input class="fi" style="max-width:240px;padding:8px 11px" placeholder="Search students..." oninput="renderStudents(this.value)"/>
+            <div style="display:flex;gap:7px">
+              <select class="fi" style="padding:7px 11px;max-width:130px" onchange="renderStudents('',this.value)"><option value="">All</option><option value="active">Active</option><option value="inactive">Inactive</option></select>
+              <button class="btn btn-p btn-sm" onclick="toast('📩 Reminders sent to inactive students!')">Remind All</button>
+            </div>
+          </div>
+          <div id="stuList"></div>
+        </div>
+      </div>
+
+      <!-- INSIGHTS -->
+      <div class="pi" id="pi-insights">
+        <h1 style="font-family:var(--df);font-size:1.65rem;font-weight:500;margin-bottom:.25rem">Class Insights</h1>
+        <p style="font-size:.82rem;color:var(--tx3);margin-bottom:1.25rem">Data-driven guidance to help your students flourish.</p>
+        <div id="insightsContent"></div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /dash -->
+</div><!-- /page-dash -->
+
+<!-- AUTH MODAL -->
+<div class="moverlay" id="authModal">
+  <div class="modal">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+      <h3 id="authTitle">Welcome to PranaPath 🙏</h3>
+      <button onclick="closeModal('authModal')" style="background:none;border:none;cursor:pointer;font-size:1.1rem;color:var(--tx3);font-family:var(--db)">✕</button>
+    </div>
+    <div class="rtabs" id="authTabs">
+      <button class="rtab" id="tab-login" onclick="switchAuthMode('login')">Sign In</button>
+      <button class="rtab" id="tab-signup" onclick="switchAuthMode('signup')">Create Account</button>
+    </div>
+    <div class="merr" id="authErr"></div>
+    <div id="signupFields" style="display:none">
+      <div class="fg"><label>Full Name</label><input class="fi" id="authName" placeholder="Your full name" /></div>
+    </div>
+    <div class="fg"><label>Email</label><input class="fi" id="authEmail" type="email" placeholder="you@example.com"/></div>
+    <div class="fg"><label>Password</label><input class="fi" id="authPwd" type="password" placeholder="••••••••"/></div>
+    <div class="fg" id="roleFieldWrap">
+      <label>I am a</label>
+      <div class="rtabs" style="margin:0">
+        <button class="rtab act" id="role-student" onclick="selectRole('student')">🧘 Student</button>
+        <button class="rtab" id="role-teacher" onclick="selectRole('teacher')">📚 Teacher</button>
+      </div>
+    </div>
+    <button class="btn btn-p" style="width:100%;padding:11px;margin-top:.5rem;font-size:.92rem" id="authBtn" onclick="doAuth()">—</button>
+    <div style="text-align:center;margin-top:.85rem;font-size:.78rem;color:var(--tx3)" id="authSwitch"></div>
+  </div>
+</div>
+
+<script>
+// ========== DATA LAYER (localStorage) ==========
+const DB = {
+  getUsers:()=>JSON.parse(localStorage.getItem('pp_users')||'[]'),
+  saveUsers:(u)=>localStorage.setItem('pp_users',JSON.stringify(u)),
+  getSession:()=>JSON.parse(localStorage.getItem('pp_session')||'null'),
+  saveSession:(s)=>localStorage.setItem('pp_session',JSON.stringify(s)),
+  clearSession:()=>localStorage.removeItem('pp_session'),
+  getLogs:()=>JSON.parse(localStorage.getItem('pp_logs')||'[]'),
+  saveLogs:(l)=>localStorage.setItem('pp_logs',JSON.stringify(l)),
+  getUser:(id)=>DB.getUsers().find(u=>u.id===id),
+  currentUser(){const s=DB.getSession();return s?DB.getUser(s.userId):null;},
+  getUserLogs(userId){return DB.getLogs().filter(l=>l.userId===userId);},
+  todayStr(){const d=new Date();return d.toISOString().slice(0,10);},
+  todayLog(userId){return DB.getLogs().find(l=>l.userId===userId&&l.date===DB.todayStr())||null;},
+  upsertLog(userId,data){
+    const logs=DB.getLogs();
+    const today=DB.todayStr();
+    const idx=logs.findIndex(l=>l.userId===userId&&l.date===today);
+    if(idx>=0)logs[idx]={...logs[idx],...data};
+    else logs.push({userId,date:today,kriya:false,pranayama:false,meditation:false,yoga:false,points:0,...data});
+    DB.saveLogs(logs);
+  },
+  calcStreak(userId){
+    const logs=DB.getLogs().filter(l=>l.userId===userId&&(l.kriya||l.pranayama||l.meditation||l.yoga));
+    if(!logs.length)return 0;
+    const dates=new Set(logs.map(l=>l.date));
+    let streak=0,d=new Date();
+    while(true){
+      const s=d.toISOString().slice(0,10);
+      if(dates.has(s)){streak++;d.setDate(d.getDate()-1);}
+      else break;
+    }
+    return streak;
+  },
+  calcPoints(userId){return DB.getUserLogs(userId).reduce((s,l)=>s+(l.points||0),0);},
+  calcRate(userId){
+    const logs=DB.getUserLogs(userId);
+    if(!logs.length)return 0;
+    const full=logs.filter(l=>l.kriya&&l.pranayama&&l.meditation&&l.yoga).length;
+    return Math.round(full/logs.length*100);
+  }
+};
+
+// ========== AUTH ==========
+let authMode='signup';
+let selRole='student';
+
+function openModal(id,mode){
+  document.getElementById(id).classList.add('on');
+  if(mode&&id==='authModal')switchAuthMode(mode);
+}
+function closeModal(id){document.getElementById(id).classList.remove('on');}
+document.getElementById('authModal').addEventListener('click',e=>{if(e.target.id==='authModal')closeModal('authModal');});
+
+function switchAuthMode(mode){
+  authMode=mode;
+  document.getElementById('tab-login').classList.toggle('act',mode==='login');
+  document.getElementById('tab-signup').classList.toggle('act',mode==='signup');
+  document.getElementById('signupFields').style.display=mode==='signup'?'block':'none';
+  document.getElementById('roleFieldWrap').style.display=mode==='signup'?'block':'none';
+  document.getElementById('authBtn').textContent=mode==='signup'?'Create Account ✨':'Enter with Light →';
+  document.getElementById('authTitle').textContent=mode==='signup'?'Join PranaPath 🙏':'Welcome Back 🙏';
+  document.getElementById('authSwitch').innerHTML=mode==='signup'?'Already have an account? <span style="color:var(--sf);cursor:pointer;font-weight:500" onclick="switchAuthMode(\'login\')">Sign in</span>':'New to PranaPath? <span style="color:var(--sf);cursor:pointer;font-weight:500" onclick="switchAuthMode(\'signup\')">Create account</span>';
+  document.getElementById('authErr').classList.remove('on');
+  document.getElementById('authErr').textContent='';
+}
+
+function selectRole(r){
+  selRole=r;
+  document.getElementById('role-student').classList.toggle('act',r==='student');
+  document.getElementById('role-teacher').classList.toggle('act',r==='teacher');
+}
+
+function showErr(msg){const e=document.getElementById('authErr');e.textContent=msg;e.classList.add('on');}
+
+function doAuth(){
+  const email=document.getElementById('authEmail').value.trim().toLowerCase();
+  const pwd=document.getElementById('authPwd').value;
+  if(!email||!pwd){showErr('Please fill in all fields.');return;}
+  if(authMode==='signup'){
+    const name=document.getElementById('authName').value.trim();
+    if(!name){showErr('Please enter your name.');return;}
+    if(pwd.length<6){showErr('Password must be at least 6 characters.');return;}
+    const users=DB.getUsers();
+    if(users.find(u=>u.email===email)){showErr('This email is already registered. Sign in instead.');return;}
+    const newUser={id:'u_'+Date.now(),name,email,password:pwd,role:selRole,createdAt:new Date().toISOString()};
+    users.push(newUser);
+    DB.saveUsers(users);
+    DB.saveSession({userId:newUser.id,role:newUser.role});
+    closeModal('authModal');
+    toast(`🙏 Welcome, ${name}! Your journey begins today.`);
+    onLogin(newUser);
+  } else {
+    const users=DB.getUsers();
+    const user=users.find(u=>u.email===email&&u.password===pwd);
+    if(!user){showErr('Incorrect email or password.');return;}
+    DB.saveSession({userId:user.id,role:user.role});
+    closeModal('authModal');
+    toast(`🙏 Welcome back, ${user.name}!`);
+    onLogin(user);
+  }
+}
+
+function onLogin(user){
+  updateNavForUser(user);
+  if(user.role==='teacher')loadTeacherDash(user);
+  else loadStudentDash(user);
+}
+
+function doLogout(){
+  DB.clearSession();
+  updateNavForUser(null);
+  showPage('land');
+  toast('👋 Signed out. See you tomorrow!');
+}
+
+function requireAuth(target){
+  const user=DB.currentUser();
+  if(!user){openModal('authModal','login');return;}
+  if(target==='chat'){
+    if(user.role==='teacher')loadTeacherDash(user,true);
+    else loadStudentDash(user,true);
+    return;
+  }
+  if(user.role==='teacher')loadTeacherDash(user);
+  else loadStudentDash(user);
+}
+
+function updateNavForUser(user){
+  const so=document.getElementById('navSignedOut');
+  const si=document.getElementById('navSignedIn');
+  if(user){
+    so.style.display='none';
+    si.style.display='flex';
+    document.getElementById('navAvatar').textContent=user.name.charAt(0).toUpperCase();
+    document.getElementById('navStudent').style.display=user.role==='student'?'':'none';
+    document.getElementById('navTeacher').style.display=user.role==='teacher'?'':'none';
+  } else {
+    so.style.display='flex';
+    si.style.display='none';
+    document.getElementById('navStudent').style.display='none';
+    document.getElementById('navTeacher').style.display='none';
+  }
+}
+
+// ========== NAVIGATION ==========
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('page-'+id)?.classList.add('on');
+}
+
+function showInner(id,btn){
+  document.querySelectorAll('.pi').forEach(p=>p.classList.remove('on'));
+  document.getElementById('pi-'+id)?.classList.add('on');
+  document.querySelectorAll('.sbi').forEach(b=>b.classList.remove('act'));
+  btn?.classList.add('act');
+  const user=DB.currentUser();
+  if(!user)return;
+  if(id==='overview')renderOverview(user);
+  if(id==='tracker')renderTracker(user);
+  if(id==='calendar')renderCalendar(user);
+  if(id==='guided')renderGuided();
+  if(id==='badges')renderBadges(user);
+  if(id==='leaderboard')renderLeaderboard(user);
+  if(id==='chat')initChat(user);
+  if(id==='teacherHome')renderTeacherHome(user);
+  if(id==='students')renderStudents('','');
+  if(id==='insights')renderInsights(user);
+}
+
+// ========== STUDENT DASHBOARD ==========
+function loadStudentDash(user,goChat){
+  document.getElementById('sb-student').style.display='flex';
+  document.getElementById('sb-teacher').style.display='none';
+  document.getElementById('sbAv').textContent=user.name.charAt(0).toUpperCase();
+  document.getElementById('sbName').textContent=user.name;
+  showPage('dash');
+  if(goChat){
+    document.querySelectorAll('.pi').forEach(p=>p.classList.remove('on'));
+    document.getElementById('pi-chat').classList.add('on');
+    initChat(user);
+    document.querySelectorAll('.sbi').forEach(b=>b.classList.remove('act'));
+  } else {
+    document.querySelectorAll('.pi').forEach(p=>p.classList.remove('on'));
+    document.getElementById('pi-overview').classList.add('on');
+    renderOverview(user);
+  }
+  const streak=DB.calcStreak(user.id);
+  document.getElementById('sbRole').textContent=`Student · ${streak>0?'🔥'+streak:'Day 1'}`;
+}
+
+// ========== OVERVIEW ==========
+const MANTRAS=[
+  {san:'ॐ तत् सत्',trans:'"Om — that is truth." The primordial sound that pervades all creation.',src:'Bhagavad Gita 17.23'},
+  {san:'सर्वे भवन्तु सुखिनः',trans:'"May all beings be happy. May all be free from suffering."',src:'Brihadaranyaka Upanishad'},
+  {san:'तमसो मा ज्योतिर्गमय',trans:'"Lead me from darkness to light, from the unreal to the real."',src:'Brihadaranyaka Upanishad 1.3.28'},
+  {san:'योगः कर्मसु कौशलम्',trans:'"Yoga is excellence in action." — Do everything with full awareness.',src:'Bhagavad Gita 2.50'},
+  {san:'अहं ब्रह्मास्मि',trans:'"I am Brahman." — You are not separate from the divine.',src:'Brihadaranyaka Upanishad 1.4.10'},
+  {san:'वसुधैव कुटुम्बकम्',trans:'"The whole world is one family." — All beings are connected.',src:'Maha Upanishad 6.71'},
+  {san:'सत्यमेव जयते',trans:'"Truth alone triumphs." — In every action, let truth guide you.',src:'Mundaka Upanishad 3.1.6'},
+];
+
+function renderOverview(user){
+  const today=new Date();
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('greetMsg').textContent=`Namaste, ${user.name} 🙏`;
+  document.getElementById('todayDate').textContent=`${days[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+
+  const mantra=MANTRAS[today.getDate()%MANTRAS.length];
+  document.getElementById('dailyMantra').innerHTML=`<div class="msan">${mantra.san}</div><div class="mtrans">${mantra.trans}</div><div class="msrc">— ${mantra.src} · Mantra of the Day</div>`;
+
+  const streak=DB.calcStreak(user.id);
+  const pts=DB.calcPoints(user.id);
+  const logs=DB.getUserLogs(user.id);
+  const rate=DB.calcRate(user.id);
+  const rank=getRank(user.id);
+  document.getElementById('streakTagOv').textContent=streak>0?`🔥 ${streak}-day streak`:'Day 0 — Start today!';
+
+  document.getElementById('ovStats').innerHTML=`
+    <div class="sc"><div class="sc-icon ic-o">🔥</div><div class="sc-num">${streak}</div><div class="sc-lbl">Day Streak</div><div class="sc-ch ${streak>0?'up':'dn'}">${streak>0?'Keep it going!':'Start today'}</div></div>
+    <div class="sc"><div class="sc-icon ic-g">⭐</div><div class="sc-num">${pts}</div><div class="sc-lbl">Total Points</div><div class="sc-ch up">${pts>0?'+'+ptsTodayVal(user.id)+' today':'0 today'}</div></div>
+    <div class="sc"><div class="sc-icon ic-gr">📊</div><div class="sc-num">${rate}%</div><div class="sc-lbl">Completion Rate</div><div class="sc-ch ${rate>=70?'up':'dn'}">${logs.length} days logged</div></div>
+    <div class="sc"><div class="sc-icon ic-b">🏆</div><div class="sc-num">#${rank}</div><div class="sc-lbl">Your Rank</div><div class="sc-ch up">among all students</div></div>`;
+
+  // Today's practice card
+  const todayLog=DB.todayLog(user.id)||{kriya:false,pranayama:false,meditation:false,yoga:false};
+  const doneCnt=[todayLog.kriya,todayLog.pranayama,todayLog.meditation,todayLog.yoga].filter(Boolean).length;
+  document.getElementById('ovPractice').innerHTML=`
+    <div class="ch"><div><div class="ct">Today's Practice</div><div class="csub">${doneCnt} of 4 complete</div></div><span class="tag">+${doneCnt*15} pts</span></div>
+    <div class="prac-grid">
+      ${pracItem('kriya','🧘','Sudarshan Kriya','Foundation · 20 pts',todayLog.kriya,'ov')}
+      ${pracItem('pranayama','🌬️','Pranayama','Breathing · 15 pts',todayLog.pranayama,'ov')}
+      ${pracItem('meditation','🪷','Meditation','Mindfulness · 15 pts',todayLog.meditation,'ov')}
+      ${pracItem('yoga','🧎','Yoga','Asana · 10 pts',todayLog.yoga,'ov')}
+    </div>`;
+
+  // Week chart
+  const weekData=getWeekData(user.id);
+  const maxH=Math.max(...weekData.map(d=>d.pct),1);
+  const wLabels=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  document.getElementById('ovWeek').innerHTML=`
+    <div class="ch"><div class="ct">This Week</div></div>
+    <div class="bar-chart" style="margin-bottom:1.5rem">${weekData.map((d,i)=>`<div class="bar" style="height:${Math.round(d.pct/maxH*100)}%;opacity:${d.pct>0?'.8':'.2'}"><span class="blbl">${wLabels[i]}</span></div>`).join('')}</div>
+    <div style="display:flex;gap:1rem;font-size:.78rem;color:var(--tx2)">
+      <div>✅ <strong>${weekData.filter(d=>d.pct===100).length}</strong> full days</div>
+      <div>📊 <strong>${Math.round(weekData.reduce((s,d)=>s+d.pct,0)/7)}%</strong> avg</div>
+    </div>`;
+
+  // Streak row
+  renderStreakCard(user.id);
+}
+
+function pracItem(key,emoji,name,sub,done,ctx){
+  return `<div class="pitem ${done?'done':''}" onclick="togglePrac('${key}','${ctx}')">
+    <span class="pemi">${emoji}</span>
+    <div class="pcheck">${done?'✓':''}</div>
+    <div class="pitem-info"><h4>${name}</h4><p>${sub}</p></div>
+  </div>`;
+}
+
+function togglePrac(key,ctx){
+  const user=DB.currentUser();if(!user)return;
+  const log=DB.todayLog(user.id)||{kriya:false,pranayama:false,meditation:false,yoga:false,points:0};
+  const wasOn=log[key];
+  const pts={kriya:20,pranayama:15,meditation:15,yoga:10};
+  log[key]=!wasOn;
+  log.points=(log.points||0)+(wasOn?-pts[key]:pts[key]);
+  DB.upsertLog(user.id,log);
+  toast(log[key]?`✅ ${key} marked! +${pts[key]} pts`:`❌ ${key} unmarked`);
+  if(ctx==='ov')renderOverview(user);
+  if(ctx==='tr')renderTracker(user);
+  const streak=DB.calcStreak(user.id);
+  document.getElementById('sbRole').textContent=`Student · ${streak>0?'🔥'+streak:'Day 1'}`;
+  document.getElementById('streakTagOv').textContent=streak>0?`🔥 ${streak}-day streak`:'Day 0 — Start today!';
+}
+
+function ptsTodayVal(userId){const l=DB.todayLog(userId);return l?l.points:0;}
+
+function getWeekData(userId){
+  const res=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const s=d.toISOString().slice(0,10);
+    const l=DB.getLogs().find(lg=>lg.userId===userId&&lg.date===s);
+    if(l){
+      const done=[l.kriya,l.pranayama,l.meditation,l.yoga].filter(Boolean).length;
+      res.push({pct:Math.round(done/4*100)});
+    } else res.push({pct:0});
+  }
+  return res;
+}
+
+function renderStreakCard(userId){
+  const sc=document.getElementById('ovStreak');if(!sc)return;
+  const streak=DB.calcStreak(userId);
+  const logs=DB.getLogs().filter(l=>l.userId===userId);
+  const dates=new Set(logs.filter(l=>l.kriya||l.pranayama||l.meditation||l.yoga).map(l=>l.date));
+  const dLabels=['M','T','W','T','F','S','S'];
+  let html=`<div class="ch"><div class="ct">🔥 ${streak}-Day Streak</div><span class="tag">${streak>=30?'Gold Sadhak':streak>=21?'Silver Yogi':streak>=7?'Bronze Seeker':'Keep going!'}</span></div><div class="streak-row">`;
+  for(let i=Math.max(0,streak+3)-1;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const s=d.toISOString().slice(0,10);
+    const on=dates.has(s);
+    html+=`<div class="sd ${on?'on':'off'}">${dLabels[d.getDay()==0?6:d.getDay()-1]}</div>`;
+  }
+  if(streak===0)html+=`<div style="font-size:.82rem;color:var(--tx3);padding:.5rem .25rem;line-height:1.6">Your streak starts the moment you log your first practice today. Tap any practice above! ☝️</div>`;
+  sc.innerHTML=html+'</div>';
+}
+
+// ========== TRACKER ==========
+function renderTracker(user){
+  const log=DB.todayLog(user.id)||{kriya:false,pranayama:false,meditation:false,yoga:false};
+  const today=new Date();
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('trackerToday').innerHTML=`
+    <div class="ch"><div class="ct">Today — ${months[today.getMonth()]} ${today.getDate()}</div><span class="tag" id="tTrackerTag">In Progress</span></div>
+    <div class="prac-grid" style="grid-template-columns:1fr">
+      ${['kriya','pranayama','meditation','yoga'].map((k,i)=>{
+        const data=[['🧘','Sudarshan Kriya','Foundation practice · 20 pts','~20 min'],['🌬️','Pranayama','Breathing techniques · 15 pts','~15 min'],['🪷','Meditation','Mindful awareness · 15 pts','~20 min'],['🧎','Yoga','Asana practice · 10 pts','~30 min']];
+        const d=data[i];
+        return `<div class="pitem ${log[k]?'done':''}" onclick="togglePrac('${k}','tr')">
+          <span class="pemi">${d[0]}</span>
+          <div class="pcheck">${log[k]?'✓':''}</div>
+          <div class="pitem-info"><h4>${d[1]}</h4><p>${d[2]}</p></div>
+          <div style="margin-left:auto;font-size:.72rem;color:var(--tx3)">${d[3]}</div>
+        </div>`;
+      }).join('')}
+    </div>
+    <button class="btn btn-p" style="width:100%;margin-top:1rem;padding:11px" onclick="saveTrackerLog()">Save Today's Log 🙏</button>`;
+
+  // intensity sliders
+  const sliders=[['Kriya Quality','kriyaQ'],['Meditation Depth','medQ'],['Energy Level','energyQ']];
+  document.getElementById('intensitySliders').innerHTML=sliders.map(([lbl,id])=>`
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:.82rem;color:var(--tx2)">${lbl}</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <input type="range" min="1" max="5" value="3" id="${id}" style="width:110px" oninput="this.nextElementSibling.textContent=this.value+'/5'"/>
+        <span style="font-size:.78rem;font-weight:600;color:var(--sf);min-width:28px">3/5</span>
+      </div>
+    </div>`).join('');
+}
+
+function saveTrackerLog(){
+  const user=DB.currentUser();if(!user)return;
+  toast('🙏 Practice saved! Keep the momentum going.');
+  renderTracker(user);
+  renderOverview(user);
+}
+
+// ========== CALENDAR ==========
+function renderCalendar(user){
+  const now=new Date();
+  const y=now.getFullYear(),m=now.getMonth();
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const firstDay=new Date(y,m,1).getDay();
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const logs=DB.getUserLogs(user.id);
+  const logMap={};
+  logs.forEach(l=>{const d=new Date(l.date);if(d.getFullYear()===y&&d.getMonth()===m){const done=[l.kriya,l.pranayama,l.meditation,l.yoga].filter(Boolean).length;logMap[d.getDate()]=done;}});
+  const todayD=now.getDate();
+
+  let cal=`<div class="ch"><div class="ct">${months[m]} ${y}</div><div style="display:flex;gap:8px;font-size:.72rem">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:3px;background:var(--sf);display:inline-block"></span>Full</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:3px;background:var(--goldl);display:inline-block"></span>Partial</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:3px;background:var(--bg3);display:inline-block"></span>Missed</span>
+  </div></div>
+  <div class="cal-head"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+  <div class="cal-wrap">`;
+  for(let i=0;i<firstDay;i++)cal+=`<div class="cday empty"></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const cnt=logMap[d]||0;
+    const cls=d>todayD?'empty':cnt>=4?'full':cnt>0?'partial':'miss';
+    const isTd=d===todayD?' today':'';
+    cal+=`<div class="cday ${cls}${isTd}" title="${months[m]} ${d}">${d}</div>`;
+  }
+  cal+=`</div>`;
+  document.getElementById('calCard').innerHTML=cal;
+
+  const totalDone=Object.keys(logMap).length;
+  const fullDays=Object.values(logMap).filter(v=>v>=4).length;
+  const streak=DB.calcStreak(user.id);
+  document.getElementById('calStats').innerHTML=`
+    <div class="sc" style="text-align:center"><div class="sc-num">${totalDone}</div><div class="sc-lbl">Days Practiced</div></div>
+    <div class="sc" style="text-align:center"><div class="sc-num">${totalDone>0?Math.round(fullDays/totalDone*100):0}%</div><div class="sc-lbl">Full Day Rate</div></div>
+    <div class="sc" style="text-align:center"><div class="sc-num">${streak}</div><div class="sc-lbl">Current Streak</div></div>`;
+}
+
+// ========== GUIDED SESSIONS ==========
+function renderGuided(){
+  const sessions=[
+    {emoji:'🪷',name:'Morning Meditation',dur:'10 minutes',level:'Beginners',grad:'135deg,var(--sf),var(--gold)'},
+    {emoji:'🌬️',name:'Pranayama Flow',dur:'15 minutes',level:'All levels',grad:'135deg,#5C9EAD,#336B87'},
+    {emoji:'🌙',name:'Yoga Nidra',dur:'30 minutes',level:'Evening',grad:'135deg,#6B4C8F,#3D2B6B'},
+    {emoji:'🔥',name:'Deep Sudarshan Kriya',dur:'25 minutes',level:'Advanced',grad:'135deg,#C0392B,#8E1A0E'},
+    {emoji:'☀️',name:'Surya Namaskar',dur:'20 minutes',level:'All levels',grad:'135deg,#F39C12,#E67E22'},
+    {emoji:'🌿',name:'Chakra Meditation',dur:'20 minutes',level:'Intermediate',grad:'135deg,#27AE60,#1A7A3C'},
+  ];
+  document.getElementById('guidedGrid').innerHTML=sessions.map(s=>`
+    <div class="card" style="cursor:pointer">
+      <div style="height:75px;background:linear-gradient(${s.grad});border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin-bottom:.9rem">${s.emoji}</div>
+      <div style="font-family:var(--df);font-size:1.05rem;font-weight:600;margin-bottom:.3rem">${s.name}</div>
+      <div style="font-size:.77rem;color:var(--tx3);margin-bottom:.9rem">${s.dur} · ${s.level}</div>
+      <button class="btn btn-p" style="width:100%;padding:8px" onclick="startSession('${s.name}')">▶ Start</button>
+    </div>`).join('');
+}
+function startSession(name){toast(`🎵 Starting ${name}...`);}
+
+// ========== BADGES ==========
+const BADGE_DEF=[
+  {id:'b1',icon:'🔥',name:'First Step',desc:'Log your first practice',req:u=>DB.getUserLogs(u).length>=1},
+  {id:'b2',icon:'🥉',name:'Bronze Seeker',desc:'7-day streak',req:u=>DB.calcStreak(u)>=7},
+  {id:'b3',icon:'🥈',name:'Silver Yogi',desc:'21-day streak',req:u=>DB.calcStreak(u)>=21},
+  {id:'b4',icon:'🥇',name:'Gold Sadhak',desc:'90-day streak',req:u=>DB.calcStreak(u)>=90},
+  {id:'b5',icon:'📊',name:'Consistent',desc:'30 days logged',req:u=>DB.getUserLogs(u).length>=30},
+  {id:'b6',icon:'💯',name:'Perfectionist',desc:'10 full practice days',req:u=>DB.getUserLogs(u).filter(l=>l.kriya&&l.pranayama&&l.meditation&&l.yoga).length>=10},
+];
+
+function renderBadges(user){
+  const pts=DB.calcPoints(user.id);
+  const logs=DB.getUserLogs(user.id);
+  const history=logs.flatMap(l=>{
+    const d=[];
+    if(l.kriya)d.push({label:'🧘 Sudarshan Kriya',date:l.date,val:'+20'});
+    if(l.pranayama)d.push({label:'🌬️ Pranayama',date:l.date,val:'+15'});
+    if(l.meditation)d.push({label:'🪷 Meditation',date:l.date,val:'+15'});
+    if(l.yoga)d.push({label:'🧎 Yoga',date:l.date,val:'+10'});
+    return d;
+  }).reverse().slice(0,8);
+
+  document.getElementById('badgesContent').innerHTML=`
+    <div class="card">
+      <div class="ch"><div class="ct">Your Badges</div><span class="tag">${BADGE_DEF.filter(b=>b.req(user.id)).length} earned</span></div>
+      <div class="badge-g">${BADGE_DEF.map(b=>{
+        const earned=b.req(user.id);
+        return `<div class="badge-i ${earned?'earned':'locked'}">
+          <div class="bi-icon">${b.icon}</div>
+          <div class="bi-name">${b.name}</div>
+          <div class="bi-desc">${b.desc}</div>
+          ${earned?'':'<div style="font-size:.65rem;color:var(--sf);margin-top:3px">🔒 Locked</div>'}
+        </div>`;
+      }).join('')}</div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">Points History</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:.9rem;background:var(--sfp);border-radius:var(--rsm);margin-bottom:1rem">
+        <div><div style="font-family:var(--df);font-size:2.2rem;font-weight:600;color:var(--sf);line-height:1">${pts}</div><div style="font-size:.77rem;color:var(--tx3)">Total Points</div></div>
+        <div style="margin-left:auto;text-align:right">
+          <div style="font-size:.8rem;font-weight:600;color:var(--tx2)">Next: Silver Yogi</div>
+          <div style="font-size:.72rem;color:var(--tx3)">Need 21-day streak</div>
+          <div style="margin-top:5px;height:5px;background:var(--bg3);border-radius:3px;width:110px"><div style="height:100%;background:linear-gradient(90deg,var(--sf),var(--gold));border-radius:3px;width:${Math.min(100,DB.calcStreak(user.id)/21*100)}%"></div></div>
+        </div>
+      </div>
+      ${history.length?history.map(h=>`<div class="pth"><div><div style="font-size:.83rem;color:var(--tx2)">${h.label}</div><div style="font-size:.7rem;color:var(--tx3)">${h.date}</div></div><div class="pth-val">${h.val}</div></div>`).join(''):`<div class="empty-st"><div class="ei">⭐</div><h4>No points yet</h4><p>Start logging your practices to earn points!</p></div>`}
+    </div>`;
+}
+
+// ========== LEADERBOARD ==========
+function getRank(userId){
+  const users=DB.getUsers().filter(u=>u.role==='student');
+  const sorted=users.map(u=>({id:u.id,pts:DB.calcPoints(u.id)})).sort((a,b)=>b.pts-a.pts);
+  const idx=sorted.findIndex(u=>u.id===userId);
+  return idx>=0?idx+1:sorted.length+1;
+}
+
+function renderLeaderboard(user){
+  const students=DB.getUsers().filter(u=>u.role==='student');
+  const ranked=students.map(u=>({
+    id:u.id,name:u.name,pts:DB.calcPoints(u.id),streak:DB.calcStreak(u.id)
+  })).sort((a,b)=>b.pts-a.pts);
+
+  if(!ranked.length){
+    document.getElementById('lbCard').innerHTML=`<div class="empty-st"><div class="ei">🏆</div><h4>No students yet</h4><p>Be the first to start your practice! Sign up as a student.</p></div>`;
+    return;
+  }
+  const rnkIcon=['r1','r2','r3'];
+  document.getElementById('lbCard').innerHTML=`<div class="ch"><div class="ct">All Students</div><span class="tag">${ranked.length} practitioners</span></div>`+
+    ranked.map((u,i)=>`
+      <div class="lbr ${u.id===user.id?'me':''}">
+        <div class="lbrank ${rnkIcon[i]||'rn'}">${i+1}</div>
+        <div class="av" style="width:30px;height:30px;font-size:.8rem">${u.name.charAt(0).toUpperCase()}</div>
+        <div><div style="font-weight:600;font-size:.87rem">${u.name}${u.id===user.id?' (You)':''}</div><div style="font-size:.72rem;color:var(--tx3)">🔥${u.streak} days</div></div>
+        <div class="lb-pts">${u.pts}</div>
+      </div>`).join('');
+}
+
+// ========== AI CHAT ==========
+let chatInited=false;
+function initChat(user){
+  if(!chatInited){
+    const msgs=document.getElementById('chatMsgs');
+    msgs.innerHTML='';
+    addMsg(`Namaste ${user.name} 🙏 I am Guruji, your spiritual companion.\n\nI draw wisdom from the Bhagavad Gita, Ramayana, and Mahabharata to guide you on your path.\n\nHow may I serve you today?`,'ai');
+    chatInited=true;
+  }
+}
+
+async function sendChat(){
+  const inp=document.getElementById('chatInp');
+  const msg=inp.value.trim();if(!msg)return;
+  const user=DB.currentUser();
+  addMsg(msg,'usr');inp.value='';
+  const btn=document.getElementById('chatSendBtn');btn.disabled=true;
+  const typing=addTyping();
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:1000,
+        system:`You are Guruji, a calm, wise and loving spiritual assistant for PranaPath — an Art of Living platform. You draw practical wisdom from the Bhagavad Gita, Ramayana, Mahabharata, and the teachings of Sri Sri Ravi Shankar.
+
+Personality: warm, gentle, non-preachy, grounded, practical. Speak with clarity and compassion.
+
+Always:
+- Connect your answer to daily spiritual practice (Sudarshan Kriya, meditation, yoga, pranayama) when relevant
+- Quote relevant shlokas with translation when helpful (keep them brief)
+- Keep responses concise — 2 to 4 short paragraphs
+- If unsure about a specific scripture reference, say "I may not be fully accurate on this reference…"
+- End with a gentle, practical suggestion
+
+The student's name is ${user?.name||'dear friend'}.
+
+Never give medical advice. Never be judgmental.`,
+        messages:[{role:'user',content:msg}]
+      })
+    });
+    const data=await r.json();
+    typing.remove();
+    const text=data.content?.[0]?.text||'🙏 Namaste. The universe sometimes needs silence. Please try again.';
+    addMsg(text,'ai');
+  }catch(e){
+    typing.remove();
+    addMsg('🙏 I am here, but the connection seems interrupted. Please check your network and try again, dear friend.','ai');
+  }
+  btn.disabled=false;
+}
+
+function addMsg(text,role){
+  const msgs=document.getElementById('chatMsgs');
+  const d=document.createElement('div');
+  d.className='cmsg '+role;
+  if(role==='ai')d.innerHTML=`<div class="ai-nm">🕉 GURUJI</div>${text.replace(/\n/g,'<br/>')}`;
+  else d.textContent=text;
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+  return d;
+}
+function addTyping(){
+  const d=document.createElement('div');d.className='cmsg ai';
+  d.innerHTML='<div class="ai-nm">🕉 GURUJI</div><span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';
+  document.getElementById('chatMsgs').appendChild(d);
+  document.getElementById('chatMsgs').scrollTop=99999;
+  return d;
+}
+function sendSug(el){document.getElementById('chatInp').value=el.textContent;sendChat();}
+
+// ========== TEACHER DASHBOARD ==========
+function loadTeacherDash(user,goChat){
+  document.getElementById('sb-student').style.display='none';
+  document.getElementById('sb-teacher').style.display='flex';
+  document.getElementById('sbAv').textContent=user.name.charAt(0).toUpperCase();
+  document.getElementById('sbName').textContent=user.name;
+  document.getElementById('sbRole').textContent='Teacher';
+  showPage('dash');
+  if(goChat){
+    document.querySelectorAll('.pi').forEach(p=>p.classList.remove('on'));
+    document.getElementById('pi-chat').classList.add('on');
+    initChat(user);
+  } else {
+    document.querySelectorAll('.pi').forEach(p=>p.classList.remove('on'));
+    document.getElementById('pi-teacherHome').classList.add('on');
+    renderTeacherHome(user);
+  }
+}
+
+function renderTeacherHome(user){
+  const students=DB.getUsers().filter(u=>u.role==='student');
+  const today=DB.todayStr();
+  const activeTodayCnt=students.filter(u=>DB.getLogs().find(l=>l.userId===u.id&&l.date===today&&(l.kriya||l.pranayama||l.meditation||l.yoga))).length;
+  const inactive=students.filter(u=>{
+    const logs=DB.getUserLogs(u.id);
+    if(!logs.length)return true;
+    const last=new Date(Math.max(...logs.map(l=>new Date(l.date))));
+    const diff=(new Date()-last)/(1000*60*60*24);
+    return diff>2;
+  });
+  const avgRate=students.length?Math.round(students.reduce((s,u)=>s+DB.calcRate(u.id),0)/students.length):0;
+
+  document.getElementById('tHdrName').textContent=`Welcome, ${user.name} 🙏`;
+  document.getElementById('tHdrSub').textContent=students.length?`${activeTodayCnt} of ${students.length} students practiced today.`:'No students registered yet.';
+
+  document.getElementById('teacherStats').innerHTML=`
+    <div class="sc"><div class="sc-icon ic-o">👥</div><div class="sc-num">${students.length}</div><div class="sc-lbl">Total Students</div><div class="sc-ch up">Registered users</div></div>
+    <div class="sc"><div class="sc-icon ic-gr">✅</div><div class="sc-num">${activeTodayCnt}</div><div class="sc-lbl">Active Today</div><div class="sc-ch ${activeTodayCnt>0?'up':'dn'}">${students.length?Math.round(activeTodayCnt/students.length*100):0}% rate</div></div>
+    <div class="sc"><div class="sc-icon ic-g">📊</div><div class="sc-num">${avgRate}%</div><div class="sc-lbl">Avg Completion</div><div class="sc-ch up">All time</div></div>
+    <div class="sc"><div class="sc-icon ic-b">⚠️</div><div class="sc-num">${inactive.length}</div><div class="sc-lbl">Need Attention</div><div class="sc-ch ${inactive.length>0?'dn':'up'}">Inactive 3+ days</div></div>`;
+
+  const top=students.map(u=>({name:u.name,pts:DB.calcPoints(u.id),streak:DB.calcStreak(u.id),rate:DB.calcRate(u.id)})).sort((a,b)=>b.pts-a.pts).slice(0,5);
+  const rnkIcon=['r1','r2','r3'];
+
+  document.getElementById('teacherCharts').innerHTML=`
+    <div class="card">
+      <div class="ch"><div class="ct">🏆 Top Performers</div><span class="tag">By points</span></div>
+      ${top.length?top.map((s,i)=>`
+        <div class="lbr">
+          <div class="lbrank ${rnkIcon[i]||'rn'}">${i+1}</div>
+          <div class="av" style="width:28px;height:28px;font-size:.78rem">${s.name.charAt(0)}</div>
+          <div><div style="font-weight:600;font-size:.84rem">${s.name}</div><div style="font-size:.7rem;color:var(--tx3)">🔥${s.streak}d · ${s.rate}%</div></div>
+          <div class="lb-pts" style="font-size:.97rem">${s.pts}</div>
+        </div>`).join(''):`<div class="empty-st"><div class="ei">📊</div><h4>No student data</h4><p>Students will appear here once they sign up and log their first practice.</p></div>`}
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">⚠️ Needs Attention</div><span class="tag">Inactive 3+ days</span></div>
+      ${inactive.length?inactive.map(u=>`
+        <div class="lbr">
+          <div class="av" style="width:28px;height:28px;font-size:.78rem;background:rgba(239,83,80,.15);color:#ef5350">${u.name.charAt(0)}</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:.84rem">${u.name}</div><div style="font-size:.7rem;color:var(--tx3)">Not seen in 3+ days</div></div>
+          <button class="btn btn-g btn-sm" onclick="toast('📩 Reminder sent to ${u.name}!')">Nudge</button>
+        </div>`).join(''):`<div class="empty-st"><div class="ei">🌟</div><h4>All active!</h4><p>All students have practiced recently. Great class!</p></div>`}
+    </div>`;
+}
+
+function renderStudents(query='',filter=''){
+  let students=DB.getUsers().filter(u=>u.role==='student');
+  if(query)students=students.filter(u=>u.name.toLowerCase().includes(query.toLowerCase()));
+  if(filter==='active')students=students.filter(u=>DB.calcStreak(u.id)>0);
+  if(filter==='inactive')students=students.filter(u=>DB.calcStreak(u.id)===0);
+
+  const list=document.getElementById('stuList');
+  if(!students.length){
+    list.innerHTML=`<div class="empty-st" style="padding:2rem"><div class="ei">👥</div><h4>${query?'No results found':'No students yet'}</h4><p>${query?'Try a different search term.':'Students will appear here once they register as students.'}</p></div>`;
+    return;
+  }
+  list.innerHTML=students.map(u=>{
+    const streak=DB.calcStreak(u.id);
+    const rate=DB.calcRate(u.id);
+    const pts=DB.calcPoints(u.id);
+    const status=streak>0?'active':'inactive';
+    const logs=DB.getUserLogs(u.id);
+    return `<div class="stu-row">
+      <div class="av" style="width:32px;height:32px;font-size:.85rem">${u.name.charAt(0)}</div>
+      <div style="flex:1;min-width:80px"><div style="font-weight:600;font-size:.85rem">${u.name}</div><div style="font-size:.7rem;color:var(--tx3)">🔥${streak}d · ${pts} pts · ${logs.length} logs</div></div>
+      <div class="mini-bar"><div class="mbt"><div class="mbf" style="width:${rate}%"></div></div><div style="font-size:.68rem;color:var(--tx3);margin-top:2px">${rate}%</div></div>
+      <span class="sbadge ${status==='active'?'s-act':'s-inact'}">${status}</span>
+      <button class="btn btn-g btn-sm" onclick="toast('👤 ${u.name}: ${streak}-day streak, ${pts} pts, ${logs.length} sessions logged.')">View</button>
+    </div>`;
+  }).join('');
+}
+
+function renderInsights(user){
+  const students=DB.getUsers().filter(u=>u.role==='student');
+  const today=DB.todayStr();
+  const activeToday=students.filter(u=>DB.getLogs().find(l=>l.userId===u.id&&l.date===today&&(l.kriya||l.pranayama||l.meditation||l.yoga)));
+  const inactive=students.filter(u=>{const logs=DB.getUserLogs(u.id);if(!logs.length)return true;const last=new Date(Math.max(...logs.map(l=>new Date(l.date))));return (new Date()-last)/(1000*60*60*24)>2;});
+  const top=students.filter(u=>DB.calcStreak(u.id)>=7);
+
+  const pracCount={kriya:0,pranayama:0,meditation:0,yoga:0,total:0};
+  DB.getLogs().forEach(l=>{if(students.find(u=>u.id===l.userId)){if(l.kriya)pracCount.kriya++;if(l.pranayama)pracCount.pranayama++;if(l.meditation)pracCount.meditation++;if(l.yoga)pracCount.yoga++;pracCount.total++;}});
+  const mx=Math.max(pracCount.kriya,pracCount.pranayama,pracCount.meditation,pracCount.yoga,1);
+
+  document.getElementById('insightsContent').innerHTML=`
+    <div class="g2" style="margin-bottom:1.1rem">
+      <div class="card">
+        <div class="ch"><div class="ct">Practice Distribution</div></div>
+        ${[['Sudarshan Kriya',pracCount.kriya],['Pranayama',pracCount.pranayama],['Meditation',pracCount.meditation],['Yoga',pracCount.yoga]].map(([n,v])=>`
+          <div class="pb-wrap"><div class="pb-lbl"><span>${n}</span><span>${v} sessions</span></div><div class="pb-track"><div class="pb-fill" style="width:${Math.round(v/mx*100)}%"></div></div></div>`).join('')}
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ct">Class Summary</div></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;padding:9px;background:var(--bg2);border-radius:8px"><span style="font-size:.83rem">Total students</span><strong>${students.length}</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:9px;background:var(--bg2);border-radius:8px"><span style="font-size:.83rem">Active today</span><strong style="color:#4CAF50">${activeToday.length}</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:9px;background:var(--bg2);border-radius:8px"><span style="font-size:.83rem">Inactive 3+ days</span><strong style="color:#ef5350">${inactive.length}</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:9px;background:var(--bg2);border-radius:8px"><span style="font-size:.83rem">7+ day streaks</span><strong style="color:var(--sf)">${top.length}</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:9px;background:var(--bg2);border-radius:8px"><span style="font-size:.83rem">Total sessions logged</span><strong>${DB.getLogs().filter(l=>students.find(u=>u.id===l.userId)).length}</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">AI Recommendations</div></div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        ${inactive.length?`<div style="padding:11px;background:rgba(232,117,26,.08);border-radius:8px;border-left:3px solid var(--sf)"><div style="font-weight:600;font-size:.87rem;margin-bottom:3px">🎯 Re-engage ${inactive.length} Inactive Student${inactive.length>1?'s':''}</div><div style="font-size:.8rem;color:var(--tx2)">Send a personal message or schedule a check-in. Students often just need a gentle nudge to restart their practice.</div></div>`:''}
+        ${top.length?`<div style="padding:11px;background:rgba(76,175,80,.08);border-radius:8px;border-left:3px solid #4CAF50"><div style="font-weight:600;font-size:.87rem;margin-bottom:3px">⭐ Celebrate ${top.length} Star Practitioner${top.length>1?'s':''}</div><div style="font-size:.8rem;color:var(--tx2)">Students with 7+ day streaks deserve recognition. Public appreciation can inspire the whole class.</div></div>`:''}
+        ${pracCount.yoga<pracCount.kriya*0.7?`<div style="padding:11px;background:rgba(41,121,255,.08);border-radius:8px;border-left:3px solid #5C9EFF"><div style="font-weight:600;font-size:.87rem;margin-bottom:3px">📈 Yoga Needs Attention</div><div style="font-size:.8rem;color:var(--tx2)">Yoga completion is lower than other practices. Consider introducing shorter sessions or morning yoga challenges.</div></div>`:''}
+        ${!students.length?`<div style="padding:11px;background:var(--bg2);border-radius:8px"><div style="font-size:.83rem;color:var(--tx3)">Invite students to register on PranaPath to start seeing insights here.</div></div>`:''}
+      </div>
+    </div>`;
+}
+
+// ========== THEME ==========
+function toggleTheme(){
+  const h=document.documentElement;
+  const isDark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',isDark?'light':'dark');
+  document.getElementById('thBtn').textContent=isDark?'🌙':'☀️';
+  toast(isDark?'☀️ Light mode':'🌙 Dark mode');
+}
+
+// ========== TOAST ==========
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),3000);
+}
+
+// ========== INIT ==========
+window.addEventListener('DOMContentLoaded',()=>{
+  switchAuthMode('signup');
+  const user=DB.currentUser();
+  if(user){
+    updateNavForUser(user);
+  }
+});
+</script>
+</body>
+</html>
